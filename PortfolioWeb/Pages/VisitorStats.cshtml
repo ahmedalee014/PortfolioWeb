@@ -1,0 +1,161 @@
+﻿@page
+@model PortfolioWeb.Pages.VisitorStatsModel
+@{
+    ViewData["Title"] = "Visitor Statistics";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed - Mobile Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    
+        
+</head>
+<body>
+    <div class="visitor-stats-container">
+        <h2>Visitor Statistics</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card custom-card">
+                    <div class="card-header custom-header">
+                        Total Visitors
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title custom-number">@Model.TotalVisitors</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card custom-card">
+                    <div class="card-header custom-header">
+                        Unique Visitors
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title custom-number">@Model.UniqueVisitors</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-dark table-striped custom-table">
+            <thead>
+                <tr>
+                    <th>Page</th> 
+                    <th>Visits</th> 
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var stat in Model.PageStats)
+                {
+                    <tr>
+                        <td>@stat.Page</td>
+                        <td>@stat.Count</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background: linear-gradient(to left, #0f172a, #1e293b);
+            line-height: 1.9;
+            margin: 0;
+            padding: 0px;
+            text-align: right;
+        min-height: 110vh;
+        }
+
+        .visitor-stats-container {
+            max-width: 100%;
+            margin: 0px 30px;
+
+        }
+
+        h2 {
+            color: #60a5fa;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .custom-card {
+            background-color: #1e293b;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            color: #e2e8f0;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: right;
+        }
+
+        .custom-header {
+            background-color: #0f172a;
+            color: #38bdf8;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0 !important;
+        }
+
+        .custom-number {
+            font-size: 32px;
+            color: #38bdf8;
+            font-weight: bold;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .custom-table {
+            background-color: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 30px;
+            text-align: right;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+            .custom-table th {
+                background-color: #0f172a;
+                color: #60a5fa;
+                text-align: right;
+                padding: 15px 20px;
+            }
+
+            .custom-table td {
+                color: #f1f5f9;
+                padding: 12px 20px;
+                text-align: right;
+            }
+
+            .custom-table tr:last-child td {
+                border-bottom: none;
+            }
+
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        [class*="col-"] {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    </style>

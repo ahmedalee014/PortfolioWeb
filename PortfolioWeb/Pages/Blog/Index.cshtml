@@ -1,0 +1,29 @@
+﻿@page
+@model PortfolioWeb.Pages.Blog.IndexModel
+@{
+    ViewData["Title"] = "Blog";
+}
+
+<section class="blog-section">
+    <div class="container">
+        <h2 class="section-title">My Blog</h2>
+        <div class="row">
+            @foreach (var post in Model.BlogPosts)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@post.ImagePath" class="card-img-top" alt="@post.Title">
+                        <div class="card-body">
+                            <h5 class="card-title">@post.Title</h5>
+                            <p class="card-text">@post.Excerpt</p>
+                            <a href="/Blog/Details?id=@post.Id" class="btn btn-primary">Read More</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            @post.PublishedDate.ToString("MMMM dd, yyyy")
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

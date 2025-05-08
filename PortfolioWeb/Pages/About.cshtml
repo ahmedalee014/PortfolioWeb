@@ -1,0 +1,140 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "About Me";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed - Mobile Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+</head>
+<body>
+
+<section class="about-section">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>
+            I'm <strong>Ahmed Ali</strong>, a passionate and dedicated Computer Science graduate from Sindh Madressatul Islam University (SMIU). I specialize in full-stack web development using technologies like ASP.NET Core, C#, and SQL. I thrive on solving complex problems, building scalable solutions, and learning new technologies to stay ahead in the tech world.
+        </p>
+
+        <h3>Education</h3>
+        <ul>
+            <li><strong>BS Computer Science</strong>, Sindh Madressatul Islam University (2020 - 2024)</li>
+            <li><strong>Intermediate</strong>, Govt. Degree College Shahdadkot (2016 - 2018)</li>
+        </ul>
+
+        <h3>Skills</h3>
+        <ul class="skills-list">
+            <li>ASP.NET Core, MVC, Razor Pages, Web API</li>
+            <li>C#, Java, Python</li>
+            <li>MySQL, MSSQL</li>
+            <li>Entity Framework Core</li>
+            <li>GitHub, Visual Studio, SQL Server, Kaggle</li>
+        </ul>
+
+        <h3>Resume Highlights</h3>
+        <ul>
+            <li><strong>Backend Developer Intern at Codsoft:</strong> Contributed to web projects using Java, C#, and ASP.NET.</li>
+            <li><strong>Breast Cancer Detection Project:</strong> Built with VGG16 and TensorFlow, achieving high accuracy in medical imaging.</li>
+            <li><strong>Learning Management System:</strong> ASP.NET-based platform for managing users, assignments, and roles.</li>
+            <li><strong>Weather App & Currency Converter:</strong> JavaScript-based apps with real-time data integration.</li>
+        </ul>
+
+        <h3>Languages</h3>
+        <p>English, Urdu, Sindhi</p>
+
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:ahmedalikhushik012@gmail.com">ahmedalikhushik012@gmail.com</a></p>
+        <p>Phone: <a href="tel:03252805736">03252805736</a></p>
+        <p>
+            <a href="https://linkedin.com/in/ahmed-ali-769b221b9" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/ahmedalee014" target="_blank">GitHub</a>
+        </p>
+    </div>
+</section>
+</body>
+</html>
+
+<style>
+
+    :root {
+    --primary: #6C63FF;
+    --primary-dark: #564FD8;
+    --secondary: #FF6584;
+    --dark: #2F2E41;
+    --light: #F8F8F8;
+    --gray: #E5E5E5;
+    --text: #333333;
+    --text-light: #777777;
+    --bg-gradient: linear-gradient(135deg, #161D2E 0%, #3F3D56 100%);
+}
+
+
+    .about-section {
+        max-width: 100%;
+        margin: 0 0;
+        padding: 0 0px;
+        background-color: #f9f9f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+        .about-section .container {
+            max-width: 100%;
+            margin: 0 0;
+            background: linear-gradient(135deg, #161D2E 0%, #3F3D56 100%);
+            padding: 100px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-section h2 {
+            font-size: 36px;
+            color: chartreuse;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-section h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            color: aqua;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        .about-section p,
+        .about-section ul {
+            font-size: 16px;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .about-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+    .skills-list {
+        columns: 2;
+        column-gap: 40px;
+        padding-left: 0;
+    }
+
+    .about-section a {
+        color: #0078d4;
+        text-decoration: none;
+    }
+
+        .about-section a:hover {
+            text-decoration: underline;
+        }
+
+</style>

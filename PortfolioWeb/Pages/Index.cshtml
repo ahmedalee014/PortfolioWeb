@@ -1,0 +1,202 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed - Mobile Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="intro-text">
+                    <h1 class="intro-line" id="name-line"></h1>
+                    <h2 class="intro-line" id="dynamic-line"></h2>
+                    <p class="intro-line" id="website-line"></p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/img/IMG_7422.jpg" alt="Ahmed's Profile Picture" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate mobile developer with 5+ years of experience building iOS and Android applications. I specialize in Flutter and React Native for cross-platform development, as well as native iOS (Swift) and Android (Kotlin) development.</p>
+                    <p>My focus is on creating apps that provide seamless user experiences while maintaining high performance and clean code architecture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <ul class="skills-grid">
+                <li class="skill-item">
+                    <span class="iconify" data-icon="vscode-icons:file-type-csharp" data-width="70" data-height="70"></span>
+                    <p class="skill-name">C#</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="logos:dotnet" data-width="70" data-height="70"></span>
+                    <p class="skill-name">.NET</p>
+                </li>
+                <li class="skill-item">
+                    <i class="net-core-icon fas fa-network-wired"></i>
+                    <p class="skill-name">.NET Core</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="logos:python" data-width="70" data-height="70"></span>
+                    <p class="skill-name">Python</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="logos:java" data-width="70" data-height="70"></span>
+                    <p class="skill-name">Java</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="vscode-icons:file-type-cpp3" data-width="70" data-height="70"></span>
+                    <p class="skill-name">C++</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="logos:javascript" data-width="70" data-height="70"></span>
+                    <p class="skill-name">JavaScript</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="logos:react" data-width="70" data-height="70"></span>
+                    <p class="skill-name">React</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="logos:firebase" data-width="70" data-height="70"></span>
+                    <p class="skill-name">Firebase</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="vscode-icons:file-type-sql" data-width="70" data-height="70"></span>
+                    <p class="skill-name">MSSQL</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="logos:mysql" data-width="70" data-height="70"></span>
+                    <p class="skill-name">MySQL</p>
+                </li>
+                <li class="skill-item">
+                    <span class="iconify" data-icon="logos:github-icon" data-width="70" data-height="70"></span>
+                    <p class="skill-name">GitHub</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/img/code.jpg" alt="Fitness Tracker App">
+                    </div>
+                    <div class="project-info">
+                        <h3>Fitness Tracker</h3>
+                        <p>A cross-platform mobile app that helps users track their fitness goals with workout plans and nutrition tracking.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Firebase</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/img/laptop.jpg" alt="E-commerce App">
+                    </div>
+                    <div class="project-info">
+                        <h3>ShopEasy</h3>
+                        <p>An e-commerce application with seamless user experience, product catalog, and secure payment integration.</p>
+                        <div class="project-tech">
+                            <span>React Native</span>
+                            <span>Node.js</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/img/code.jpg" alt="Fitness Tracker App">
+                    </div>
+                    <div class="project-info">
+                        <h3>Fitness Tracker</h3>
+                        <p>A cross-platform mobile app that helps users track their fitness goals with workout plans and nutrition tracking.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Firebase</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/img/laptop.jpg" alt="E-commerce App">
+                    </div>
+                    <div class="project-info">
+                        <h3>ShopEasy</h3>
+                        <p>An e-commerce application with seamless user experience, product catalog, and secure payment integration.</p>
+                        <div class="project-tech">
+                            <span>React Native</span>
+                            <span>Node.js</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!</p>
+                <a href="mailto:ahmed@myfip.com" class="btn">Email Me</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</body>
+</html>
