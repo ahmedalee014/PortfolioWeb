@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.IO;
@@ -12,7 +11,6 @@ namespace PortfolioWeb.Pages
         public DownloadResumeModel(ILogger<DownloadResumeModel> logger, IWebHostEnvironment env)
         {
             _logger = logger;
-            _env = env;
         }
 
         public IActionResult OnGet()
