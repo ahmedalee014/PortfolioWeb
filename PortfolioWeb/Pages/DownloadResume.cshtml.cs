@@ -5,11 +5,9 @@ using System.IO;
 
 namespace PortfolioWeb.Pages
 {
-    [Authorize] // Requires login
     public class DownloadResumeModel : PageModel
     {
         private readonly ILogger<DownloadResumeModel> _logger;
-        private readonly IWebHostEnvironment _env;
 
         public DownloadResumeModel(ILogger<DownloadResumeModel> logger, IWebHostEnvironment env)
         {
