@@ -1,0 +1,64 @@
+﻿@page
+@model PortfolioWeb.Areas.Admin.Pages.Blog.CreateModel
+@{
+    ViewData["Title"] = "Create Blog Post";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    <!-- Display error messages -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <h4>Validation Errors</h4>
+            <div asp-validation-summary="All"></div>
+        </div>
+    }
+
+    <!-- Display success message -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <form method="post" enctype="multipart/form-data" class="mt-4">
+        <div class="form-group">
+            <label asp-for="BlogPost.Title"></label>
+            <input asp-for="BlogPost.Title" class="form-control" />
+            <span asp-validation-for="BlogPost.Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BlogPost.Excerpt"></label>
+            <textarea asp-for="BlogPost.Excerpt" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="BlogPost.Excerpt" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BlogPost.Content"></label>
+            <textarea asp-for="BlogPost.Content" class="form-control" rows="10"></textarea>
+            <span asp-validation-for="BlogPost.Content" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ImageFile"></label>
+            <input type="file" asp-for="ImageFile" class="form-control-file" />
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" asp-for="BlogPost.IsPublished" class="form-check-input" />
+            <label asp-for="BlogPost.IsPublished" class="form-check-label"></label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

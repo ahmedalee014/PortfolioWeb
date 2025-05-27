@@ -1,0 +1,34 @@
+﻿@page "{id:int}"
+@model PortfolioWeb.Areas.Admin.Pages.Blog.DetailsModel
+@{
+    ViewData["Title"] = "Blog Post Details";
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>@ViewData["Title"]</h1>
+        <div>
+            <a asp-page="./Edit" asp-route-id="@Model.BlogPost.Id" class="btn btn-primary">Edit</a>
+            <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+
+    <div class="card">
+        @if (!string.IsNullOrEmpty(Model.BlogPost.ImagePath))
+        {
+            <img src="@Model.BlogPost.ImagePath" class="card-img-top" alt="@Model.BlogPost.Title">
+        }
+        <div class="card-body">
+            <h2 class="card-title">@Model.BlogPost.Title</h2>
+            <p class="text-muted">
+                Published: @Model.BlogPost.PublishedDate.ToString("MMMM dd, yyyy") |
+                Status: @(Model.BlogPost.IsPublished ? "Published" : "Draft")
+            </p>
+            <h4>Excerpt</h4>
+            <p class="card-text">@Model.BlogPost.Excerpt</p>
+            <h4>Content</h4>
+            <div class="card-text">@Html.Raw(Model.BlogPost.Content)</div>
+        </div>
+    </div>
+</div>

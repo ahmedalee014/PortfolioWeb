@@ -1,0 +1,95 @@
+﻿@page
+@model PortfolioWeb.Areas.Admin.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Ahmed's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/dash.css" asp-append-version="true" />
+</head>
+
+<div class="admin-container">
+    <div class="admin-header">
+        <div class="admin-brand">
+            <h1><span class="gradient-text">Admin</span> Dashboard</h1>
+        </div>
+        <div class="admin-user">
+            <span>Welcome back, <strong>Admin</strong></span>
+            <span class="user-email">admin@example.com</span>
+            <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="dashboard-card blog-card">
+            <div class="card-icon">
+                <i class="fas fa-blog"></i>
+            </div>
+            <h3>Blog Management</h3>
+            <p>Create, edit, and publish your latest blog posts and articles.</p>
+            <a asp-page="/Blog/Index" class="btn-primary">Manage Blog <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="dashboard-card project-card">
+            <div class="card-icon">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3>Project Management</h3>
+            <p>Showcase your best work by updating portfolio projects.</p>
+            <a asp-page="/Projects/Index" class="btn-primary">Manage Projects <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="dashboard-card message-card">
+            <div class="card-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Contact Messages</h3>
+            <p>View and respond to messages from your portfolio visitors.</p>
+            <a asp-page="/Contacts/Index" class="btn-primary">View Messages <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="dashboard-card stats-card">
+            <div class="card-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Visitor Statistics</h3>
+            <p>Track and analyze your portfolio's visitor data and trends.</p>
+            <a asp-page="/Stats/Index" class="btn-primary">View Stats <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <div class="quick-stats">
+        <div class="stat-item">
+            <i class="fas fa-eye"></i>
+            <div>
+                <span class="stat-number">1,248</span>
+                <span class="stat-label">Total Views</span>
+            </div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-comment"></i>
+            <div>
+                <span class="stat-number">24</span>
+                <span class="stat-label">New Messages</span>
+            </div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-heart"></i>
+            <div>
+                <span class="stat-number">89</span>
+                <span class="stat-label">Project Likes</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+}

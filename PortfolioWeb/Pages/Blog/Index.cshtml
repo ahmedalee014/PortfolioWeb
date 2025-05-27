@@ -8,22 +8,59 @@
     <div class="container">
         <h2 class="section-title">My Blog</h2>
         <div class="row">
-            @foreach (var post in Model.BlogPosts)
+            @if (Model.BlogPosts?.Any() == true)
             {
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="@post.ImagePath" class="card-img-top" alt="@post.Title">
-                        <div class="card-body">
-                            <h5 class="card-title">@post.Title</h5>
-                            <p class="card-text">@post.Excerpt</p>
-                            <a href="/Blog/Details?id=@post.Id" class="btn btn-primary">Read More</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                            @post.PublishedDate.ToString("MMMM dd, yyyy")
+                @foreach (var post in Model.BlogPosts)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            @{
+                                var imagePath = Url.Content(post.ImagePath);
+                                var imageExists = System.IO.File.Exists("wwwroot" + post.ImagePath);
+                            }
+                            @if (imageExists)
+                            {
+                                <img src="@imagePath" class="card-img-top" alt="@post.Title" onerror="this.style.display='none'">
+                            }
+                            else
+                            {
+                                <div class="missing-image">Image not found</div>
+                            }
+                            <div class="card-body">
+                                <h5 class="card-title">@post.Title</h5>
+                                <p class="card-text">@post.Excerpt</p>
+                                <a href="/Blog/Details?id=@post.Id" class="btn btn-primary">Read More</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                @post.PublishedDate.ToString("MMMM dd, yyyy")
+                            </div>
                         </div>
                     </div>
+                }
+            }
+            else
+            {
+                <div class="col-12">
+                    <div class="alert alert-warning">No blog posts found.</div>
                 </div>
             }
         </div>
     </div>
 </section>
+
+<style>
+    .missing-image {
+        height: 200px;
+        background: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+    }
+
+    .card {
+        border: 2px solid red !important; /* Force visibility */
+        opacity: 1 !important;
+        display: block !important;
+    }
+</style>

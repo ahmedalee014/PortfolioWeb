@@ -1,0 +1,87 @@
+﻿@page
+@model PortfolioWeb.Areas.Admin.Pages.Projects.CreateModel
+@{
+    ViewData["Title"] = "Create Project";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <h4>Validation Errors</h4>
+            <div asp-validation-summary="All"></div>
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <form method="post" enctype="multipart/form-data" class="mt-4">
+        <div class="form-group">
+            <label asp-for="Project.Title"></label>
+            <input asp-for="Project.Title" class="form-control" />
+            <span asp-validation-for="Project.Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Project.Description"></label>
+            <textarea asp-for="Project.Description" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="Project.Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Project.Technologies"></label>
+            <input asp-for="Project.Technologies" class="form-control" />
+            <span asp-validation-for="Project.Technologies" class="text-danger"></span>
+            <small class="form-text text-muted">Comma-separated list of technologies used</small>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Project.GitHubUrl"></label>
+            <input asp-for="Project.GitHubUrl" class="form-control" />
+            <span asp-validation-for="Project.GitHubUrl" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Project.LiveDemoUrl"></label>
+            <input asp-for="Project.LiveDemoUrl" class="form-control" />
+            <span asp-validation-for="Project.LiveDemoUrl" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ImageFile"></label>
+            <input type="file" asp-for="ImageFile" class="form-control-file" />
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+            <small class="form-text text-muted">Recommended size: 800x600 pixels</small>
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" asp-for="Project.IsFeatured" class="form-check-input" />
+            <label asp-for="Project.IsFeatured" class="form-check-label">Feature this project</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Client-side validation for URLs
+        $.validator.addMethod("url", function(value, element) {
+            // Optional - skip validation if empty
+            if (!value) return true;
+
+            // Basic URL validation
+            return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(value);
+        }, "Please enter a valid URL");
+    </script>
+}

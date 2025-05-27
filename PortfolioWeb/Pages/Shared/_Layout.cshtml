@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
+    <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
     <header>
@@ -33,7 +33,7 @@
                             <a class="nav-link" asp-page="/About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-page="/Skills">Skills</a>
+                            <a class="nav-link" asp-page="/Index">Skills</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-page="/Projects">Projects</a>
@@ -82,3 +82,14 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+@section Scripts {
+    <script>
+        tinymce.init({
+            selector: 'textarea#BlogPost_Content',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+    </script>
+}

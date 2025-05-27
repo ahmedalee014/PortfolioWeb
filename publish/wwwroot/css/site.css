@@ -1,0 +1,102 @@
+:root {
+    --primary-color: #6c63ff;
+    --dark-color: #2f2e41;
+    --light-color: #ffffff;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-color);
+    background-color: #f8f9fa;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px;
+}
+
+
+
+.nav-link {
+    color: wheat !important; /* Change this value */
+}
+
+main {
+    flex: 1 0 auto;
+    padding-bottom: 20px;
+}
+
+footer {
+    background: linear-gradient(150deg, #2f3431 10%, #1b3f40 100%);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--navbar-shadow);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    background-color: transparent;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--navbar-shadow);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: -0.5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    color: var(--dark-color);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+    .nav-link:hover {
+        color: var(--primary-color) !important;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+    .navbar-light .navbar-nav .nav-link.active::after {
+        width: 100%;
+    }
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}

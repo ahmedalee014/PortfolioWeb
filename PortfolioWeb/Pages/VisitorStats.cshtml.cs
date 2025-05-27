@@ -7,22 +7,17 @@ using System.Linq;
 namespace PortfolioWeb.Pages
 {
     [Authorize]
-    public class VisitorStatsModel : PageModel
+    public class VisitorStatsModel(ApplicationDbContext context) : PageModel
     {
-        private readonly ApplicationDbContext _context;
-
-        public VisitorStatsModel(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        private readonly ApplicationDbContext _context = context;
 
         public int TotalVisitors { get; set; }
         public int UniqueVisitors { get; set; }
-        public List<PageStat> PageStats { get; set; }
+        public required List<PageStat> PageStats { get; set; }
 
         public class PageStat
         {
-            public string Page { get; set; }
+            public required string Page { get; set; }
             public int Count { get; set; }
         }
 

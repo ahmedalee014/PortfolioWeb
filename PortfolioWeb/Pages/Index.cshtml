@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Ahmed | Backend Developer";
 }
 
 <!DOCTYPE html>
@@ -9,35 +9,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed - Mobile Developer Portfolio</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
-    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <link rel="stylesheet" href="~/css/animations.css" asp-append-version="true" />
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <a href="#" class="logo">Ahmed<span>.</span></a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <div class="container">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <div class="hero-content">
                 <div class="intro-text">
-                    <h1 class="intro-line" id="name-line"></h1>
-                    <h2 class="intro-line" id="dynamic-line"></h2>
-                    <p class="intro-line" id="website-line"></p>
-                </div>
-                <div class="social-links">
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <h4 class="intro-greeting">Hello, I'm</h4>
+                    <h1 class="intro-name">Ahmed</h1>
+                    <div class="dynamic-text">
+                        <span class="text-rotate" data-rotate='["Backend Developer", ".NET Specialist", "Database Expert", "API Architect"]'></span>
+                    </div>
+                    <p class="intro-bio">I build robust, scalable backend systems that power modern web applications.</p>
                 </div>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-paper-plane"></i> Contact Me
+                    </a>
+                    <a asp-page="/DownloadResume" class="btn btn-outline">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="/img/IMG_7422.jpg" alt="Ahmed's Profile Picture" loading="lazy">
+                <div class="image-wrapper">
+                    <img src="/images/IMG_7422.jpg" alt="Ahmed's Profile Picture" loading="lazy">
+                    <div class="tech-badge dotnet">
+                        <i class="fas fa-network-wired"></i>
+                        <span>.NET Core</span>
+                    </div>
+                    <div class="tech-badge sql">
+                        <i class="fas fa-database"></i>
+                        <span>SQL</span>
+                    </div>
+                    <div class="tech-badge api">
+                        <i class="fas fa-code"></i>
+                        <span>API</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -45,11 +90,61 @@
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
             <div class="about-content">
+                <div class="about-image">
+                    <img src="/images/about-me.jpg" alt="About Ahmed" loading="lazy">
+                </div>
                 <div class="about-text">
-                    <p>I'm a passionate mobile developer with 5+ years of experience building iOS and Android applications. I specialize in Flutter and React Native for cross-platform development, as well as native iOS (Swift) and Android (Kotlin) development.</p>
-                    <p>My focus is on creating apps that provide seamless user experiences while maintaining high performance and clean code architecture.</p>
+                    <h3>Who am I?</h3>
+                    <p>I'm a passionate backend developer with 5+ years of experience in building scalable web applications and APIs. My expertise lies in .NET Core, C#, and database architecture.</p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Name:</span>
+                            <span class="detail-value">Ahmed</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-value">ahmed@example.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Experience:</span>
+                            <span class="detail-value">5+ Years</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span>
+                            <span class="detail-value">City, Country</span>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-progress" data-value="95">
+                                <span class="stat-title">Backend Development</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-progress" data-value="90">
+                                <span class="stat-title">Database Design</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-progress" data-value="85">
+                                <span class="stat-title">API Architecture</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,124 +153,222 @@
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <ul class="skills-grid">
-                <li class="skill-item">
-                    <span class="iconify" data-icon="vscode-icons:file-type-csharp" data-width="70" data-height="70"></span>
-                    <p class="skill-name">C#</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="logos:dotnet" data-width="70" data-height="70"></span>
-                    <p class="skill-name">.NET</p>
-                </li>
-                <li class="skill-item">
-                    <i class="net-core-icon fas fa-network-wired"></i>
-                    <p class="skill-name">.NET Core</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="logos:python" data-width="70" data-height="70"></span>
-                    <p class="skill-name">Python</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="logos:java" data-width="70" data-height="70"></span>
-                    <p class="skill-name">Java</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="vscode-icons:file-type-cpp3" data-width="70" data-height="70"></span>
-                    <p class="skill-name">C++</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="logos:javascript" data-width="70" data-height="70"></span>
-                    <p class="skill-name">JavaScript</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="logos:react" data-width="70" data-height="70"></span>
-                    <p class="skill-name">React</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="logos:firebase" data-width="70" data-height="70"></span>
-                    <p class="skill-name">Firebase</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="vscode-icons:file-type-sql" data-width="70" data-height="70"></span>
-                    <p class="skill-name">MSSQL</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="logos:mysql" data-width="70" data-height="70"></span>
-                    <p class="skill-name">MySQL</p>
-                </li>
-                <li class="skill-item">
-                    <span class="iconify" data-icon="logos:github-icon" data-width="70" data-height="70"></span>
-                    <p class="skill-name">GitHub</p>
-                </li>
-            </ul>
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-server"></i> Backend
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <i class="fab fa-microsoft"></i>
+                                <span>.NET Core</span>
+                            </div>
+                            <div class="skill-progress" data-value="95">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <i class="fas fa-code"></i>
+                                <span>C#</span>
+                            </div>
+                            <div class="skill-progress" data-value="90">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <i class="fab fa-java"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="skill-progress" data-value="80">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-database"></i> Database
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <i class="fas fa-database"></i>
+                                <span>SQL Server</span>
+                            </div>
+                            <div class="skill-progress" data-value="90">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <i class="fas fa-database"></i>
+                                <span>MySQL</span>
+                            </div>
+                            <div class="skill-progress" data-value="85">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <i class="fas fa-fire"></i>
+                                <span>Firebase</span>
+                            </div>
+                            <div class="skill-progress" data-value="75">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-globe"></i> Web
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <i class="fab fa-js"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="skill-progress" data-value="80">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="skill-progress" data-value="75">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML/CSS</span>
+                            </div>
+                            <div class="skill-progress" data-value="85">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <div class="container">
-            <h2 class="section-title">My Projects</h2>
+            <div class="section-header">
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-subtitle">Some of my recent work</p>
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter=".net">.NET</button>
+                <button class="filter-btn" data-filter="api">API</button>
+                <button class="filter-btn" data-filter="database">Database</button>
+            </div>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="/img/code.jpg" alt="Fitness Tracker App">
-                    </div>
-                    <div class="project-info">
-                        <h3>Fitness Tracker</h3>
-                        <p>A cross-platform mobile app that helps users track their fitness goals with workout plans and nutrition tracking.</p>
-                        <div class="project-tech">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
+                @foreach (var project in Model.Projects)
+                {
+                    <div class="project-card" data-category="@project.Category.ToLower()">
+                        <div class="project-image">
+                            <img src="@project.ImageUrl" alt="@project.Title" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="@project.LiveUrl" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-outline">View Project</a>
+                        <div class="project-info">
+                            <h3 class="project-title">@project.Title</h3>
+                            <p class="project-description">@project.Description</p>
+                            <div class="project-tech">
+                                @foreach (var tech in project.Technologies.Split(','))
+                                {
+                                    <span class="tech-tag">@tech.Trim()</span>
+                                }
+                            </div>
+                            <a href="/Projects/Details/@project.Id" class="btn btn-primary">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                        </div>
                     </div>
-                </div>
+                }
+            </div>
+            <div class="section-footer">
+                <a href="/Projects" class="btn btn-outline">
+                    <i class="fas fa-book-open"></i> View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="/img/laptop.jpg" alt="E-commerce App">
-                    </div>
-                    <div class="project-info">
-                        <h3>ShopEasy</h3>
-                        <p>An e-commerce application with seamless user experience, product catalog, and secure payment integration.</p>
-                        <div class="project-tech">
-                            <span>React Native</span>
-                            <span>Node.js</span>
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Blog Posts</h2>
+                <p class="section-subtitle">Thoughts on backend development</p>
+            </div>
+            <div class="blog-grid">
+                @foreach (var post in Model.BlogPosts.Take(3))
+                {
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="@post.ImageUrl" alt="@post.Title" loading="lazy">
+                            <div class="blog-date">
+                                <span class="date-day">@post.PublishedDate.Day</span>
+                                <span class="date-month">@post.PublishedDate.ToString("MMM")</span>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-outline">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="/img/code.jpg" alt="Fitness Tracker App">
-                    </div>
-                    <div class="project-info">
-                        <h3>Fitness Tracker</h3>
-                        <p>A cross-platform mobile app that helps users track their fitness goals with workout plans and nutrition tracking.</p>
-                        <div class="project-tech">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">@post.Category</span>
+                                <span class="blog-readtime">@post.ReadTime min read</span>
+                            </div>
+                            <h3 class="blog-title">@post.Title</h3>
+                            <p class="blog-excerpt">@post.Excerpt</p>
+                            <a href="/Blog/Details/@post.Id" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
-                        <a href="#" class="btn btn-outline">View Project</a>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="/img/laptop.jpg" alt="E-commerce App">
-                    </div>
-                    <div class="project-info">
-                        <h3>ShopEasy</h3>
-                        <p>An e-commerce application with seamless user experience, product catalog, and secure payment integration.</p>
-                        <div class="project-tech">
-                            <span>React Native</span>
-                            <span>Node.js</span>
-                        </div>
-                        <a href="#" class="btn btn-outline">View Project</a>
-                    </div>
-                </div>
+                }
+            </div>
+            <div class="section-footer">
+                <a href="/Blog" class="btn btn-outline">
+                    <i class="fas fa-newspaper"></i> View All Posts
+                </a>
             </div>
         </div>
     </section>
@@ -183,20 +376,115 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's work together</p>
+            </div>
             <div class="contact-content">
-                <p>Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!</p>
-                <a href="mailto:ahmed@myfip.com" class="btn">Email Me</a>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <a href="mailto:ahmed@example.com">ahmed@example.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Phone</h4>
+                            <a href="tel:+1234567890">+1 (234) 567-890</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Location</h4>
+                            <span>City, Country</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" method="post">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
-
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Ahmed<span>.</span></a>
+                    <p>Backend developer specializing in .NET Core, C#, and database architecture.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on my latest projects and blog posts.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; @DateTime.Now.Year Ahmed. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Back to Top -->
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/animations.js" asp-append-version="true"></script>
 </body>
 </html>

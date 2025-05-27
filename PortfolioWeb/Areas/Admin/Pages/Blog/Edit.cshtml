@@ -1,0 +1,71 @@
+﻿@page
+@model PortfolioWeb.Areas.Admin.Pages.Blog.EditModel
+@{
+    ViewData["Title"] = "Edit Blog Post";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+    
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <h4>Validation Errors</h4>
+            <div asp-validation-summary="All"></div>
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <form method="post" enctype="multipart/form-data" class="mt-4">
+        <input type="hidden" asp-for="BlogPost.Id" />
+        
+        <div class="form-group">
+            <label asp-for="BlogPost.Title"></label>
+            <input asp-for="BlogPost.Title" class="form-control" />
+            <span asp-validation-for="BlogPost.Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BlogPost.Excerpt"></label>
+            <textarea asp-for="BlogPost.Excerpt" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="BlogPost.Excerpt" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BlogPost.Content"></label>
+            <textarea asp-for="BlogPost.Content" class="form-control" rows="10"></textarea>
+            <span asp-validation-for="BlogPost.Content" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NewImageFile"></label>
+            <input type="file" asp-for="NewImageFile" class="form-control-file" />
+            <span asp-validation-for="NewImageFile" class="text-danger"></span>
+            <small class="form-text text-muted">Leave blank to keep current image</small>
+            
+            @if (!string.IsNullOrEmpty(Model.CurrentImagePath))
+            {
+                <div class="mt-2">
+                    <label>Current Image:</label>
+                    <img src="@Model.CurrentImagePath" class="img-thumbnail" style="max-height: 200px;" />
+                </div>
+            }
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" asp-for="BlogPost.IsPublished" class="form-check-input" />
+            <label asp-for="BlogPost.IsPublished" class="form-check-label">Published</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
